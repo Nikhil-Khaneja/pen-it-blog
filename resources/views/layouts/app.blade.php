@@ -9,8 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -74,16 +72,18 @@
 
         <main class="py-4">
             @auth
+            @include('layouts._message')
                 <div class="container">
+
                     <div class="row">
                         <div class="col-md-3">
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="">Categories</a>
+                                <a href="{{route('categories.index')}}">Categories</a>
                                 </li>
 
                                 <li class="list-group-item">
-                                    <a href="">Posts</a>
+                                    <a href="{{route('posts.index')}}">Posts</a>
                                 </li>
 
                             </ul>
@@ -98,5 +98,9 @@
             @endauth
         </main>
     </div>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" ></script> 
+{{-- defer keyword is used to execute the script after whole code executed that is why we keep scripts in end and if want to keep somewhere else so this can be used  --}}
+@yield('page-level-scripts')
 </body>
 </html>

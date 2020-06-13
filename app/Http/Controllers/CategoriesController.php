@@ -4,38 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\Categories\CreateCategoryRequest;
+use App\Http\Requests\Categories\UpdateCategoryRequest;
 
 class CategoriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('categories.index',compact([
+            'categories'
+        ]));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
-        //
+        //1.validate the data -done in ccrequest file
+        //2.store in db
+        Category::create([
+            'name'=>$request->name
+        ]);
+
+        //3. Session set something and return a view
+        session()->flash('success','category added successfully');
+        return redirect(route('categories.index'));
     }
 
     /**
@@ -57,7 +55,9 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit',compact([
+            'category'
+        ]));
     }
 
     /**
@@ -67,9 +67,13 @@ class CategoriesController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->name = $request->name;
+        $category->save();
+        session()->flash('success',"category edited successfully");
+        return redirect(route("categories.index"));
+         
     }
 
     /**
@@ -80,6 +84,8 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+       session()->flash('success',"category deleted successfully");
+       return redirect(route("categories.index"));
     }
 }
