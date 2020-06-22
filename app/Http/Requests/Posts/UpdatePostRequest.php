@@ -24,10 +24,10 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|unique:posts,title'.$this->post->id,
+            'title'=>'required|unique:posts,title,'.$this->post->id,
             'excerpt'=>'required|max:255',
             'content'=>'required',
-            'image'=>'required|image|mimes:png,jpg,jpeg,svg|max:1024'
+            'image'=>'image|mimes:png,jpg,jpeg,svg|max:1024'
         ];
     }
 }

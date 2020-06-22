@@ -9,11 +9,13 @@
         <div class="card-header">Posts</div>
 
         <div class="card-body">
-            <table class="table table-bordered">
+            @if ($posts->count() > 0)
+            <table class="table table-responsive">
                 <thead>
                     <th>Image</th>
                     <th>Title</th>
                     <th>Excerpt</th>
+                    <th>Author</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -21,13 +23,14 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td>
-                            <img src="{{asset('storage/'.$post->image)}}" alt="Post Image" width = "128">
+                            <img src="{{asset('storage/'.$post->image)}}" alt="Post Image" width = "100">
                             </td>
                             <td>{{$post->title}}</td>
                             <td>{{$post->excerpt}}</td>
+                            <td>{{$post->author->name}}</td>
                             <td>
-                            <a href="#" class="btn btn-primary btn-sm" >Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm" 
+                            <a href="{{route('posts.edit',$post->id)}}" class="btn btn-primary btn-sm" >Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm"  onclick="displayModalForm({{$post}})"
                             data-toggle="modal" data-target="#deleteModal">Delete</a>
                             
                             </td>
@@ -35,6 +38,9 @@
                     @endforeach
                 </tbody>
             </table>
+            @else
+            <h5>No Posts to Show</h5>
+            @endif
         </div>
     </div>
 
@@ -56,7 +62,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-danger">Delete Category</button>
+                <button type="submit" class="btn btn-danger">Delete Post</button>
             </div>
         </form>    
       </div>
@@ -67,8 +73,8 @@
 
 @section('page-level-scripts')
   <script type="text/javascript">
-        function displayModalForm($category){
-            var url = '/categories/'+ $category.id; 
+        function displayModalForm($post){
+            var url = '/trash/'+ $post.id; 
             $('#deleteForm').attr('action',url);
         }
         

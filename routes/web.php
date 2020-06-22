@@ -14,15 +14,26 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/','WelcomeController@index')->name('welcome');
+Route::get('/blog/category/{category}','WelcomeController@category')->name('blog.category');
+
+Route::get('/blog/tag/{tag}','WelcomeController@tag')->name('blog.tag');
+
+Route::get('/blog/{post}', 'WelcomeController@show')->name('blog.show');
+Auth::routes();
+Route::middleware(['auth'])->group(function(){
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::resource('categories', 'CategoriesController');
+    Route::resource('posts', 'PostsController');
+    Route::resource('tags', 'TagsController');
+    Route::delete('/trash/{post}', 'PostsController@trash')->name('posts.trash');
+    Route::get('/trashed','PostsController@trashed')->name('posts.trashed');
+    Route::put('/restore/{post}', 'PostsController@restore')->name('posts.restore');
+
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::resource('categories', 'CategoriesController');
-Route::resource('posts', 'PostsController');
-
+Route::middleware(['auth','admin'])->group(function(){
+    Route::get('/users', 'UsersController@index')->name('users.index');
+    Route::put('users/{id}/make-admin', 'UsersController@makeAdmin')->name('users.make-admin'); 
+});

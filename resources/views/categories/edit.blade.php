@@ -30,7 +30,9 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">Edit Category</div>
+        <div class="card-header">
+            Edit Category
+        </div>
 
         <div class="card-body">
         <form action="{{route('categories.update',$category->id)}}" method="POST">

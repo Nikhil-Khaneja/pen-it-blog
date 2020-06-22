@@ -56,6 +56,8 @@ class ComposerStaticInite3e9481df8c64671a388c89fb4060672
         'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
+            'Thomaswelton\\Tests\\LaravelGravatar\\' => 35,
+            'Thomaswelton\\LaravelGravatar\\' => 29,
             'Tests\\' => 6,
         ),
         'S' => 
@@ -196,6 +198,14 @@ class ComposerStaticInite3e9481df8c64671a388c89fb4060672
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
+        ),
+        'Thomaswelton\\Tests\\LaravelGravatar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/thomaswelton/laravel-gravatar/tests',
+        ),
+        'Thomaswelton\\LaravelGravatar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/thomaswelton/laravel-gravatar/src',
         ),
         'Tests\\' => 
         array (
@@ -464,6 +474,13 @@ class ComposerStaticInite3e9481df8c64671a388c89fb4060672
     );
 
     public static $prefixesPsr0 = array (
+        't' => 
+        array (
+            'thomaswelton\\GravatarLib\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/thomaswelton/gravatarlib',
+            ),
+        ),
         'M' => 
         array (
             'Mockery' => 
@@ -498,6 +515,7 @@ class ComposerStaticInite3e9481df8c64671a388c89fb4060672
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PostsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostsController.php',
+        'App\\Http\\Controllers\\TagsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TagsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -506,14 +524,22 @@ class ComposerStaticInite3e9481df8c64671a388c89fb4060672
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
+        'App\\Http\\Middleware\\ValidateAuthorForEditAndDeletePost' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateAuthorForEditAndDeletePost.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Middleware\\verifyCategoriesCount' => __DIR__ . '/../..' . '/app/Http/Middleware/verifyCategoriesCount.php',
         'App\\Http\\Requests\\Categories\\CreateCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Categories/CreateCategoryRequest.php',
+        'App\\Http\\Requests\\Categories\\UpdateCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Categories/UpdateCategoryRequest.php',
+        'App\\Http\\Requests\\Posts\\CreatePostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Posts/CreatePostRequest.php',
+        'App\\Http\\Requests\\Posts\\UpdatePostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Posts/UpdatePostRequest.php',
+        'App\\Http\\Requests\\Tags\\CreateTagRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Tags/CreateTagRequest.php',
+        'App\\Http\\Requests\\Tags\\UpdateTagRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Tags/UpdateTagRequest.php',
         'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Tag' => __DIR__ . '/../..' . '/app/Tag.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
@@ -4755,6 +4781,9 @@ class ComposerStaticInite3e9481df8c64671a388c89fb4060672
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'Thomaswelton\\LaravelGravatar\\Facades\\Gravatar' => __DIR__ . '/..' . '/thomaswelton/laravel-gravatar/src/Facades/Gravatar.php',
+        'Thomaswelton\\LaravelGravatar\\Gravatar' => __DIR__ . '/..' . '/thomaswelton/laravel-gravatar/src/Gravatar.php',
+        'Thomaswelton\\LaravelGravatar\\LaravelGravatarServiceProvider' => __DIR__ . '/..' . '/thomaswelton/laravel-gravatar/src/LaravelGravatarServiceProvider.php',
         'TijsVerkoyen\\CssToInlineStyles\\CssToInlineStyles' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/CssToInlineStyles.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Processor.php',
@@ -4854,6 +4883,7 @@ class ComposerStaticInite3e9481df8c64671a388c89fb4060672
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'thomaswelton\\GravatarLib\\Gravatar' => __DIR__ . '/..' . '/thomaswelton/gravatarlib/thomaswelton/GravatarLib/Gravatar.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 

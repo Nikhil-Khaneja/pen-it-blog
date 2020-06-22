@@ -9,9 +9,11 @@
         <div class="card-header">Categories</div>
 
         <div class="card-body">
+            @if ($categories->count() > 0)
             <table class="table table-bordered">
                 <thead>
                     <th>Name</th>
+                    <th>Posts</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -19,6 +21,9 @@
                         <tr>
                             <td>
                                 {{$category->name}}
+                            </td>
+                            <td>
+                                {{$category->posts->count()}}
                             </td>
                             <td>
                             <a href="{{route('categories.edit',$category->id)}}" class="btn btn-primary btn-sm" >Edit</a>
@@ -31,6 +36,9 @@
                     @endforeach
                 </tbody>
             </table>
+            @else
+            <h5>No Categories to Show</h5>
+            @endif
         </div>
     </div>
 
